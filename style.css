@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Container {
+  width: 100%;
+  height: auto;
+  padding: 60px;
+  background-color: rgb(15, 15, 15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .Container {
+    flex-direction: column;
+  }
+}
+.Container .gear {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px;
+}
+@media (min-width: 320px) and (max-width: 1024px) {
+  .Container .gear {
+    width: 250px;
+    height: 250px;
+  }
+}
+.Container .gear:first-child {
+  animation: rotate1 3s linear infinite;
+  animation-delay: 0.15s;
+}
+.Container .gear:nth-child(2) {
+  animation: rotate2 3s linear infinite;
+}
+.Container .gear:last-child {
+  animation: rotate1 3s linear infinite;
+  animation-delay: 0.15s;
+}
+@keyframes rotate1 {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes rotate2 {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.Container .gear::before {
+  position: absolute;
+  content: "";
+  width: 65%;
+  height: 65%;
+  background-color: rgb(15, 15, 15);
+  border-radius: 50%;
+  z-index: 1;
+}
+.Container .gear::after {
+  content: "";
+  position: absolute;
+  width: 130%;
+  height: 60px;
+  background-color: white;
+  transform: rotate(180deg);
+  top: 42%;
+  border-radius: 15px;
+}
+.Container .gear .tooth {
+  width: 60px;
+  height: 130%;
+  background-color: white;
+  position: relative;
+  border-radius: 15px;
+}
+.Container .gear .tooth::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 100%;
+  background-color: white;
+  transform: rotate(45deg);
+  border-radius: 15px;
+}
+.Container .gear .tooth::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 100%;
+  background-color: white;
+  transform: rotate(-45deg);
+  border-radius: 15px;
+}/*# sourceMappingURL=style.css.map */

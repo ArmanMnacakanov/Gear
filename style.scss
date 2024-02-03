@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Container {
+    width: 100%;
+    height: auto;
+    padding: 60px;
+    background-color: rgb(15, 15, 15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    @media(min-width:320px) and (max-width:768px){
+        flex-direction: column;
+    }
+
+
+
+    .gear {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background-color: white;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 25px;
+
+        @media(min-width:320px) and (max-width:1024px) {
+            width: 250px;
+            height: 250px;
+        }
+
+        &:first-child {
+            animation: rotate1 3s linear infinite;
+            animation-delay: .150s;
+        }
+
+        &:nth-child(2) {
+            animation: rotate2 3s linear infinite;
+        }
+
+        &:last-child {
+            animation: rotate1 3s linear infinite;
+            animation-delay: .150s;
+        }
+
+        @keyframes rotate1 {
+            from {
+                transform: rotate(0);
+            }
+
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+
+        @keyframes rotate2 {
+            from {
+                transform: rotate(0);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        &::before {
+            position: absolute;
+            content: '';
+            width: 65%;
+            height: 65%;
+            background-color: rgb(15, 15, 15);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 130%;
+            height: 60px;
+            background-color: white;
+            transform: rotate(180deg);
+            top: 42%;
+            border-radius: 15px;
+        }
+
+        .tooth {
+            width: 60px;
+            height: 130%;
+            background-color: white;
+            position: relative;
+            border-radius: 15px;
+
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 60px;
+                height: 100%;
+                background-color: white;
+                transform: rotate(45deg);
+                border-radius: 15px;
+            }
+
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 60px;
+                height: 100%;
+                background-color: white;
+                transform: rotate(-45deg);
+                border-radius: 15px;
+            }
+        }
+    }
+}
